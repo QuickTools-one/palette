@@ -21,11 +21,15 @@
     "quantize",
     "chroma"
   ],
-  "author": "",
+  "author": "QuickTools.one",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/QuickTools-one/palette.git"
+  },
+  "homepage": "https://quicktools.one",
+  "bugs": {
+    "url": "https://github.com/QuickTools-one/palette/issues"
   },
   "dependencies": {
     "chroma-js": "^3.1.2",
