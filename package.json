@@ -1,0 +1,39 @@
+{
+  "name": "@quicktoolsone/palette",
+  "version": "1.0.0",
+  "description": "Extract color palettes from images using color quantization",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "color",
+    "palette",
+    "image",
+    "color-extraction",
+    "color-thief",
+    "quantize",
+    "chroma"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "dependencies": {
+    "chroma-js": "^3.1.2",
+    "quantize": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/chroma-js": "^2.4.4",
+    "@types/node": "^22.10.1",
+    "typescript": "^5.7.2"
+  }
+}
