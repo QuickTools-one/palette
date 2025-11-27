@@ -1,6 +1,6 @@
 {
   "name": "@quicktoolsone/palette",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Extract color palettes from images using color quantization",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "chroma-js": "^3.1.2",
+    "named-web-colors": "^1.4.3",
     "quantize": "^1.0.2"
   },
   "devDependencies": {

@@ -22,7 +22,17 @@
     "ColorItem.type.ts",
     "colorThief.ts",
     "core.ts",
-    "quantize.d.ts"
+    "quantize.d.ts",
+    "named-web-colors.d.ts",
+    "fetchColorName.ts",
+    "generateShades.ts",
+    "generateTints.ts",
+    "generateTones.ts",
+    "getAnalogousColors.ts",
+    "getMonochromaticColors.ts",
+    "getOppositeColor.ts",
+    "getTetradicColors.ts",
+    "getTriadicColors.ts"
   ],
   "exclude": [
     "node_modules",

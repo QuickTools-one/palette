@@ -18,6 +18,9 @@ npm install @quicktoolsone/palette
 - ⚡ Fast color quantization using median cut algorithm
 - 🌐 Works with both image elements and URLs
 - 📦 TypeScript support included
+- 🎭 Color harmony utilities (complementary, triadic, tetradic, analogous, monochromatic)
+- 🌓 Generate shades, tints, and tones
+- 📛 Get human-readable color names
 
 ## Usage
 
@@ -80,6 +83,65 @@ const cmyk = rgbToCmyk(rgb); // [0, 66, 80, 0]
 
 // Convert back
 const rgbFromHex = hexToRGB('#ff5733'); // [255, 87, 51]
+```
+
+### Color Harmony Functions
+
+```typescript
+import {
+  getOppositeColor,
+  getTriadicColors,
+  getTetradicColors,
+  getAnalogousColors,
+  getMonochromaticColors,
+} from '@quicktoolsone/palette';
+
+const baseColor = '#ff5733';
+
+// Get the complementary (opposite) color
+const opposite = getOppositeColor(baseColor); // "#33d9ff"
+
+// Get triadic colors (3 colors evenly spaced on color wheel)
+const triadic = getTriadicColors(baseColor); // ["#ff5733", "#33ff57", "#5733ff"]
+
+// Get tetradic colors (4 colors forming a rectangle on color wheel)
+const tetradic = getTetradicColors(baseColor); // ["#33d9ff", "#d9ff33", "#33ff8c"]
+
+// Get analogous colors (adjacent colors on color wheel)
+const analogous = getAnalogousColors(baseColor); // ["#ff5733", "#ff4719", "#ff6d4d"]
+
+// Get monochromatic colors (same hue, different lightness)
+const mono = getMonochromaticColors(baseColor); // ["#ff5733", "#1a0400", "#661500"]
+```
+
+### Shades, Tints, and Tones
+
+```typescript
+import { generateShades, generateTints, generateTones } from '@quicktoolsone/palette';
+
+const baseColor = '#ff5733';
+
+// Generate 10 shades (progressively darker)
+const shades = generateShades(baseColor);
+// ["#ff5733", "#f24e2e", "#e5462a", ...]
+
+// Generate 10 tints (progressively lighter)
+const tints = generateTints(baseColor);
+// ["#ff5733", "#ff6b4d", "#ff7f66", ...]
+
+// Generate 10 tones (progressively desaturated)
+const tones = generateTones(baseColor);
+// ["#ff5733", "#f25e40", "#e5654d", ...]
+```
+
+### Get Color Names
+
+```typescript
+import { fetchColorName } from '@quicktoolsone/palette';
+
+// Get human-readable name for a color
+const color = { hex: '#ff5733', rgb: [255, 87, 51], hsl: [9, 100, 60], cmyk: [0, 66, 80, 0] };
+const name = fetchColorName(color); // "Orange Red" or similar
 ```
 
 ## API Reference
@@ -175,6 +237,93 @@ type ColorItem = {
 - `hexToRGB(hex)` - Convert HEX to RGB
 - `rgbToHSL(rgb)` - Convert RGB to HSL
 - `rgbToCmyk(rgb)` - Convert RGB to CMYK
+
+### Color Harmony Functions
+
+#### `getOppositeColor(color)`
+
+Gets the complementary color (180° rotation on the color wheel).
+
+**Parameters:**
+- `color` (string) - Any valid CSS color string (hex, rgb, hsl)
+
+**Returns:** `string` - Hex color code
+
+#### `getTriadicColors(color)`
+
+Gets three colors evenly spaced on the color wheel (120° apart).
+
+**Parameters:**
+- `color` (string) - Any valid CSS color string
+
+**Returns:** `string[]` - Array of 3 hex color codes
+
+#### `getTetradicColors(color)`
+
+Gets four colors forming a rectangle on the color wheel.
+
+**Parameters:**
+- `color` (string) - Any valid CSS color string
+
+**Returns:** `string[]` - Array of 3 hex color codes (complement + 2 split complements)
+
+#### `getAnalogousColors(color)`
+
+Gets adjacent colors on the color wheel (±6° hue rotation).
+
+**Parameters:**
+- `color` (string) - Any valid CSS color string
+
+**Returns:** `string[]` - Array of 3 hex color codes
+
+#### `getMonochromaticColors(color)`
+
+Gets colors with the same hue but varying lightness.
+
+**Parameters:**
+- `color` (string) - Any valid CSS color string
+
+**Returns:** `string[]` - Array of 3 hex color codes
+
+### Shade, Tint, and Tone Generators
+
+#### `generateShades(color)`
+
+Generates 10 progressively darker variations of a color.
+
+**Parameters:**
+- `color` (string) - Any valid CSS color string
+
+**Returns:** `string[]` - Array of 10 hex color codes
+
+#### `generateTints(color)`
+
+Generates 10 progressively lighter variations of a color.
+
+**Parameters:**
+- `color` (string) - Any valid CSS color string
+
+**Returns:** `string[]` - Array of 10 hex color codes
+
+#### `generateTones(color)`
+
+Generates 10 progressively desaturated variations of a color.
+
+**Parameters:**
+- `color` (string) - Any valid CSS color string
+
+**Returns:** `string[]` - Array of 10 hex color codes
+
+### Color Naming
+
+#### `fetchColorName(color)`
+
+Gets a human-readable name for a color.
+
+**Parameters:**
+- `color` (ColorItem) - A ColorItem object with hex property
+
+**Returns:** `string` - Human-readable color name (or hex code if no name found)
 
 ## Quality vs Speed
 

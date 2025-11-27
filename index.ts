@@ -219,6 +219,17 @@ export {
   rgbToCmyk,
 };
 
+// Export color manipulation utilities
+export { default as generateShades } from './generateShades';
+export { default as generateTints } from './generateTints';
+export { default as generateTones } from './generateTones';
+export { default as getAnalogousColors } from './getAnalogousColors';
+export { default as getMonochromaticColors } from './getMonochromaticColors';
+export { default as getOppositeColor } from './getOppositeColor';
+export { default as getTetradicColors } from './getTetradicColors';
+export { default as getTriadicColors } from './getTriadicColors';
+export { default as fetchColorName } from './fetchColorName';
+
 // Export types
 export type { ColorItem };
 
