@@ -30,7 +30,7 @@ export function getPalette(
   quality: number = 10
 ): ColorItem[] {
   const palette: [number, number, number][] = colorThief.getPalette(image, colorCount, quality);
-  
+
   if (!palette) {
     return [];
   }
@@ -54,7 +54,7 @@ export function getDominantColor(
   quality: number = 10
 ): ColorItem {
   const color: [number, number, number] = colorThief.getColor(image, quality);
-  
+
   return {
     hex: rgbToHex(color),
     rgb: color,
@@ -90,7 +90,7 @@ export function getPaletteFromUrl(
           hsl: rgbToHSL(color),
           cmyk: rgbToCmyk(color),
         }));
-        
+
         resolve(colors);
       },
       colorCount,
@@ -223,6 +223,7 @@ export {
 export { default as generateShades } from './generateShades';
 export { default as generateTints } from './generateTints';
 export { default as generateTones } from './generateTones';
+export { default as getAdjacentColors } from './getAdjacentColors';
 export { default as getAnalogousColors } from './getAnalogousColors';
 export { default as getMonochromaticColors } from './getMonochromaticColors';
 export { default as getOppositeColor } from './getOppositeColor';
