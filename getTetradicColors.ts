@@ -15,8 +15,8 @@ function getTetradicColors(color: string): string[] {
     const firstSplitComplement = complement.set('hsl.h', (complement.hsl()[0] + 60) % 360);
     const secondSplitComplement = complement.set('hsl.h', (complement.hsl()[0] - 60 + 360) % 360);
 
-    // Convert the colors to hex color strings
-    return [complement.hex(), firstSplitComplement.hex(), secondSplitComplement.hex()];
+    // Convert the colors to hex color strings (include the original color for tetradic = 4 colors)
+    return [chromaColor.hex(), complement.hex(), firstSplitComplement.hex(), secondSplitComplement.hex()];
 }
 
 export default getTetradicColors;
