@@ -15,7 +15,8 @@ const hexToRGB = (value: string): [number, number, number] => {
 function rgbToHSL(rgb: [number, number, number]): [number, number, number] {
     const [r, g, b] = rgb
     const [h, s, l] = chroma(r, g, b).hsl()
-    return [Math.round(h), Math.round(s * 100), Math.round(l * 100)];
+    // Hue is NaN for achromatic colors (grayscale), default to 0
+    return [Math.round(h || 0), Math.round(s * 100), Math.round(l * 100)];
 }
 
 function rgbToCmyk([red, green, blue]: [number, number, number]): [number, number, number, number] {

@@ -102,8 +102,12 @@ class ColorThief {
 
     // Send array to quantize function which clusters values
     // using median cut algorithm
-    const cmap = quantize(pixelArray, options.colorCount);
-    return cmap ? cmap.palette() : [];
+    // Note: quantize can return inconsistent color counts, so we request extra
+    // colors and slice to ensure we return exactly the requested number
+    const requestCount = Math.min(options.colorCount + 2, 20);
+    const cmap = quantize(pixelArray, requestCount);
+    const palette = cmap ? cmap.palette() : [];
+    return palette.slice(0, options.colorCount);
   }
 
   /**
